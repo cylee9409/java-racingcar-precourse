@@ -5,13 +5,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 
-class RacingCarTest extends NsTest {
+class RacingCntTest extends NsTest {
     @ParameterizedTest
     @ValueSource(strings = {"abc", " ", "9df92"})
     void 레이싱_횟수_숫자_타입_아닌_값_예외_처리_테스트(String input) {
