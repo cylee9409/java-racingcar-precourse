@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
@@ -56,6 +57,17 @@ class CarsTest extends NsTest {
         for (int i = 0; i < carNames.size(); i++) {
             assertThat(carNames.get(i)).isEqualTo(createCarNames.get(i));
         }
+    }
+
+    @Test
+    void Car_정상_이동_테스트() {
+        Car car = new Car("test");
+        car.moveForward(3);
+        assertThat(car.getPosition()).isEqualTo(0);
+
+        car.moveForward(4);
+        assertThat(car.getPosition()).isEqualTo(1);
+
     }
 
     @Override
