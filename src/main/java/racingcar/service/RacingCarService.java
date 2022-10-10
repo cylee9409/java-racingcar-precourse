@@ -17,6 +17,7 @@ public class RacingCarService {
         getRacingCnt();
         racingStart();
         printCarPositions();
+        printWinnerNames();
     }
 
     private List<String> getCarNames() {
@@ -55,6 +56,10 @@ public class RacingCarService {
         for (int i = 0; i < racingCnt.getRacingCnt(); i++) {
             ConsolePrinter.printRacingResult(cars.getCars());
         }
+    }
+
+    private void printWinnerNames() {
+        ConsolePrinter.printWinnerNames(cars.getWinnerNames());
     }
 
 }

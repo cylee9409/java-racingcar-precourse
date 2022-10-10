@@ -65,4 +65,27 @@ public class Cars {
             car.moveForward(new RandomNum().getRandomNum());
         }
     }
+
+    public List<String> getWinnerNames() {
+        List<String> winnerNames = new ArrayList<>();
+        int maxPosition = findMaxPosition();
+        for (Car car : cars) {
+            addWinnerName(car, maxPosition, winnerNames);
+        }
+        return winnerNames;
+    }
+
+    private int findMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = car.getPosition() > maxPosition ? car.getPosition() : maxPosition;
+        }
+        return maxPosition;
+    }
+
+    private void addWinnerName(Car car, int maxPosition, List<String> winnerNames) {
+        if (car.getPosition() == maxPosition) {
+            winnerNames.add(car.getName());
+        }
+    }
 }
