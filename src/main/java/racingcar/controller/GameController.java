@@ -6,6 +6,6 @@ public class GameController {
     RacingCarService racingCarService = new RacingCarService();
 
     public void gameStart() {
-        racingCarService.gameStart();
+        racingCarService.racingGameStart();
     }
 }

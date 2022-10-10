@@ -60,4 +60,9 @@ public class Cars {
         return cars;
     }
 
+    public void moveCars() {
+        for (Car car : cars) {
+            car.moveForward(new RandomNum().getRandomNum());
+        }
+    }
 }

@@ -12,9 +12,11 @@ public class RacingCarService {
     private Cars cars = new Cars();
     private RacingCnt racingCnt;
 
-    public void gameStart() {
+    public void racingGameStart() {
         enrollRacing();
         getRacingCnt();
+        racingStart();
+        printCarPositions();
     }
 
     private List<String> getCarNames() {
@@ -39,6 +41,19 @@ public class RacingCarService {
         } catch (IllegalArgumentException e) {
             getRacingCnt();
             return;
+        }
+    }
+
+    private void racingStart() {
+        for (int i = 0; i < racingCnt.getRacingCnt(); i++) {
+            cars.moveCars();
+        }
+    }
+
+    private void printCarPositions() {
+        ConsolePrinter.printConsoleMsg(Messages.GAME_RESULT);
+        for (int i = 0; i < racingCnt.getRacingCnt(); i++) {
+            ConsolePrinter.printRacingResult(cars.getCars());
         }
     }
 
