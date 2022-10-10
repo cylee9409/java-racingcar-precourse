@@ -16,7 +16,6 @@ public class RacingCarService {
         enrollRacing();
         getRacingCnt();
         racingStart();
-        printCarPositions();
         printWinnerNames();
     }
 
@@ -46,14 +45,9 @@ public class RacingCarService {
     }
 
     private void racingStart() {
-        for (int i = 0; i < racingCnt.getRacingCnt(); i++) {
-            cars.moveCars();
-        }
-    }
-
-    private void printCarPositions() {
         ConsolePrinter.printConsoleMsg(Messages.GAME_RESULT);
         for (int i = 0; i < racingCnt.getRacingCnt(); i++) {
+            cars.moveCars();
             ConsolePrinter.printRacingResult(cars.getCars());
         }
     }
