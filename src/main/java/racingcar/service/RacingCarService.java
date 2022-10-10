@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import racingcar.domain.Cars;
+import racingcar.domain.RacingCnt;
 import racingcar.view.ConsolePrinter;
 import racingcar.view.ConsoleScanner;
 import racingcar.view.Messages;
@@ -9,9 +10,11 @@ import java.util.List;
 
 public class RacingCarService {
     private Cars cars = new Cars();
+    private RacingCnt racingCnt;
 
     public void gameStart() {
         enrollRacing();
+        getRacingCnt();
     }
 
     private List<String> getCarNames() {
@@ -21,11 +24,20 @@ public class RacingCarService {
     }
 
     private void enrollRacing() {
-        List<String> carNames = getCarNames();
         try {
-            cars.enrollRacing(carNames);
+            cars.enrollRacing(getCarNames());
         } catch (IllegalArgumentException e) {
             enrollRacing();
+            return;
+        }
+    }
+
+    private void getRacingCnt() {
+        ConsolePrinter.printConsoleMsg(Messages.ASK_RACING_CNT);
+        try {
+            racingCnt = new RacingCnt(ConsoleScanner.getUserInput());
+        } catch (IllegalArgumentException e) {
+            getRacingCnt();
             return;
         }
     }
